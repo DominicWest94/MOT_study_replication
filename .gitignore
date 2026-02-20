@@ -1,0 +1,23 @@
+# macOS
+.DS_Store
+
+# MATLAB autosaves
+*.asv
+*.m~
+*.autosave
+
+# R
+.Rhistory
+.RData
+.Rproj.user/
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Data folders
+data/
+stimuli/
+figures/
