@@ -18,6 +18,6 @@ __pycache__/
 venv/
 
 # Data folders
-data/
+output_data_behavioural/
 stimuli/
 figures/

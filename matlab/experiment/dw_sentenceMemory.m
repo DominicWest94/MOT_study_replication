@@ -1,4 +1,4 @@
-function dw_sentenceMemoryV2
+function dw_sentenceMemory
 %% Sentence Recognition + Confidence Rating (figure-based)
 % Dominic West / Dec 2025
 %
@@ -24,7 +24,7 @@ try
     %% -------------------------
     %  Load sentence pool for this participant
     %  -------------------------
-    subjRoot = fullfile('/Users/dominicwest/Documents/Uni/PhD/MATLAB/MOT_study_replication/output_data_behavioural', sprintf('subj%02d', participantNumber));
+    subjRoot = fullfile('/Users/dominicwest/Documents/Code/MOT_study_replication/matlab/experiment/output_data_behavioural', sprintf('subj%02d', participantNumber));
 
     poolFile = fullfile(subjRoot, sprintf('subj%02d_sentencePool.mat', participantNumber));
     if ~isfile(poolFile)

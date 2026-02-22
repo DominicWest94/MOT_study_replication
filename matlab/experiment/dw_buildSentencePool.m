@@ -17,12 +17,29 @@ function dw_buildSentencePool(participantNumber)
 %        audioSent, load1Sent, load3Sent, load4Sent, load6Sent, foilSent.
 
 %% -------------------------
+%  Get participant number via dialog (if not provided)
+%  -------------------------
+if nargin < 1 || isempty(participantNumber)
+    answer = inputdlg({'Participant number:'}, 'dw_buildSentencePool', [1 50]);
+    if isempty(answer)
+        disp('Cancelled: no participant number entered.');
+        return;
+    end
+
+    participantNumber = str2double(strtrim(answer{1}));
+    if isnan(participantNumber) || ~isfinite(participantNumber) || participantNumber < 0 || mod(participantNumber,1) ~= 0
+        error('Invalid participant number. Enter a whole number (e.g., 1, 2, 12).');
+    end
+end
+
+%% -------------------------
 %  USER: PATHS & SETTINGS
 %  -------------------------
 
 % behavioural data from exp
-rootDir = '/Users/dominicwest/Documents/Uni/PhD/MATLAB/MOT_study_replication';
-logDir = fullfile(rootDir, sprintf('/output_data_behavioural/subj%02d', participantNumber));
+rootDir = '/Users/dominicwest/Documents/Code/MOT_study_replication/matlab';
+
+logDir = fullfile(rootDir, sprintf('/experiment/output_data_behavioural/subj%02d', participantNumber));
 
 % chapter stim files
 stimDir = fullfile(rootDir, '/modelling');
